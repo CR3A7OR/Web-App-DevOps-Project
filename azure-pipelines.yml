@@ -10,9 +10,10 @@ pool:
   vmImage: ubuntu-latest
 
 steps:
+
 - task: Docker@2
   inputs:
-    containerRegistry: 'Docker Hub'
+    containerRegistry: 'docker-hub'
     repository: 'cr3a7or/webapp-aicore'
     command: 'buildAndPush'
     Dockerfile: '**/Dockerfile'
