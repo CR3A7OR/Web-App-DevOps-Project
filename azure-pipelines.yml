@@ -13,7 +13,7 @@ steps:
 - task: Docker@2
   inputs:
     containerRegistry: 'Docker Hub'
-    repository: 'mayaaiuga/flask-app-sercrets'
+    repository: 'cr3a7or/webapp-aicore'
     command: 'buildAndPush'
     Dockerfile: '**/Dockerfile'
     tags: 'latest'
