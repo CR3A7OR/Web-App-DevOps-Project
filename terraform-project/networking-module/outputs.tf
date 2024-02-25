@@ -2,7 +2,7 @@
 
 output "vnet_id" {
   description = "ID of the Virtual Network (VNet)."
-  value       = azurerm_virtual_network.aks-vnet.id
+  value       = azurerm_virtual_network.aks_vnet.id
 }
 
 output "control_plane_subnet_id" {

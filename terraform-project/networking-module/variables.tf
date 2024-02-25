@@ -1,7 +1,7 @@
 variable "resource_group_name" { 
   description = "The name of the Azure Resource Group where the networking resources will be deployed in"
   type        = string
-  default     = "my-resource-group"
+  default     = "network-rg"
 }
 
 variable "location" {

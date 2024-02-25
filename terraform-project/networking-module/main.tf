@@ -6,8 +6,8 @@ resource "azurerm_resource_group" "networking" {
 }
 
 # Define the Virtual Network (VNet) for the AKS cluster
-resource "azurerm_virtual_network" "aks-vnet" {
-  name                = "aks-vnet"
+resource "azurerm_virtual_network" "aks_vnet" {
+  name                = "aks_vnet"
   address_space       = var.vnet_address_space
   location            = azurerm_resource_group.networking.location
   resource_group_name = azurerm_resource_group.networking.name
