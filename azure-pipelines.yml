@@ -4,24 +4,18 @@
 # https://aka.ms/yaml
 
 trigger:
-- secrets-feature
+- main
 
 pool:
   vmImage: ubuntu-latest
+  parallel: 1
 
 steps:
+
 - task: Docker@2
   inputs:
-    containerRegistry: 'Docker Hub'
-    repository: 'mayaaiuga/flask-app-sercrets'
+    containerRegistry: 'docker-hub'
+    repository: 'cr3a7or/webapp-aicore'
     command: 'buildAndPush'
     Dockerfile: '**/Dockerfile'
     tags: 'latest'
-- task: KubernetesManifest@1
-  inputs:
-    action: 'deploy'
-    connectionType: 'azureResourceManager'
-    azureSubscriptionConnection: 'aks-service-connection'
-    azureResourceGroup: 'aks-rg'
-    kubernetesCluster: 'aks-demo'
-    manifests: 'deployment.yaml'
