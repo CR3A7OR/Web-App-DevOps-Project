@@ -17,6 +17,7 @@ spec:
         image: cr3a7or/webapp-aicore:1
         ports:
         - containerPort: 5000
+        imagePullPolicy: Always
   strategy:
     type: RollingUpdate
     rollingUpdate:
