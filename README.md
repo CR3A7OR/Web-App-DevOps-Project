@@ -60,3 +60,26 @@ To run the application, you simply need to run the `app.py` script in this repos
 ## License
 
 This project is licensed under the MIT License. For more details, refer to the [LICENSE](LICENSE) file.
+
+
+## Notes
+
+1. Start docker, minikube
+2. terraform apply
+3. Retrieve the kubeconfig -> azcli aks get-credentials --resource-group network-rg --name terraform-aks-cluster
+4. cp /home/cr3at0r/snap/azcli/7/.kube/config .
+
+kubectl config get-contexts
+CURRENT   NAME                    CLUSTER                 AUTHINFO                                       NAMESPACE
+*         terraform-aks-cluster   terraform-aks-cluster   clusterUser_network-rg_terraform-aks-cluster   
+
+- kubectl apply -f application-manifest.yaml
+- kubectl get pods
+- kubectl port-forward <pod-name> 5000:5000 
+
+### Clean up
+- kubectl delete deployment flask-app-deployment
+- terraform destroy
+- minikube stop
+
+Ask Patrick how much of a real struggle this was lol

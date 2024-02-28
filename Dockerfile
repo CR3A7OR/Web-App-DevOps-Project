@@ -1,4 +1,3 @@
-# TODO: Step 1 - Use an official Python runtime as a parent image. You can use `python:3.8-slim`.
 FROM python:3.8-slim
 
 # TODO: Step 2 - Set the working directory in the container

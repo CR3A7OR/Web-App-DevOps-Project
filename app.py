@@ -5,15 +5,32 @@ from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy import create_engine
 import pyodbc
 import os
+from azure.identity import ManagedIdentityCredential
+from azure.keyvault.secrets import SecretClient
 
 # Initialise Flask App
 app = Flask(__name__)
 
+key_vault_url = "https://aicore-key-vault.vault.azure.net/"
+credential = ManagedIdentityCredential()
+secret_client = SecretClient(vault_url=key_vault_url, credential=credential)
+
+server-name = secret_client.get_secret("server-name")
+server-password = secret_client.get_secret("server-password")
+server-username = secret_client.get_secret("server-username")
+database-name = secret_client.get_secret("database-name")
+
 # database connection 
-server = 'devops-project-server.database.windows.net'
-database = 'orders-db'
-username = 'maya'
-password = 'AiCore1237'
+#server = 'devops-project-server.database.windows.net'
+#database = 'orders-db'
+#username = 'maya'
+#password = 'AiCore1237'
+
+server = server-name.value
+database = database-name.value
+username = server-username.value
+password = server-password.value
+
 driver= '{ODBC Driver 18 for SQL Server}'
 
 # Create the connection string
